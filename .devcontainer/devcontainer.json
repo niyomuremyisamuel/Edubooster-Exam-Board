@@ -1,0 +1,39 @@
+{
+  "name": "Edubooster Exam Board",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/php:1": {
+      "version": "8.4",
+      "installComposer": true,
+      "extensions": "bcmath,ctype,curl,dom,fileinfo,filter,gd,hash,iconv,intl,mbstring,openssl,pdo,pdo_sqlite,session,tokenizer,xml,zip"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22"
+    }
+  },
+  "forwardPorts": [8000, 5173],
+  "portsAttributes": {
+    "8000": {
+      "label": "Edubooster Exam Board",
+      "onAutoForward": "openBrowser"
+    },
+    "5173": {
+      "label": "Vite development server",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/bootstrap-laravel.sh",
+  "postStartCommand": "bash .devcontainer/start-laravel.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "onecentlin.laravel-blade",
+        "amiralizadeh9480.laravel-extra-intellisense",
+        "bradlc.vscode-tailwindcss",
+        "editorconfig.editorconfig"
+      ]
+    }
+  },
+  "remoteUser": "codespace"
+}
